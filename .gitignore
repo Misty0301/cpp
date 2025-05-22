@@ -1,9 +1,50 @@
-*.o
-*.out
-*.log
-*.swp
-*.vscode
-bazel-bin/
-bazel-cpp/
-bazel-testlogs/
+# === Bazel ===
+bazel-*
 bazel-out/
+bazel-bin/
+bazel-testlogs/
+bazel-cache/
+bazel-workspace/
+bazel-*/
+*.runfiles/
+
+# Bazel lock & symlink files
+bazel.lock
+MODULE.bazel.lock
+WORKSPACE.bzlmod.lock
+.bazelrc.user
+
+# === C++ 编译中间文件 ===
+*.o
+*.obj
+*.so
+*.a
+*.out
+*.exe
+*.dll
+
+# === 编辑器/IDE 缓存 ===
+*.swp
+*~
+*.log
+*.tmp
+*.bak
+.DS_Store
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# CLion / JetBrains
+.idea/
+cmake-build-*/
+
+# === clang-format backup ===
+*~ 
+.clang-format
+
+# === 编译产物（非 Bazel）===
+build/
+dist/
+bin/
+lib/

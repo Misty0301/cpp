@@ -3,3 +3,7 @@
 *.log
 *.swp
 *.vscode
+bazel-bin/
+bazel-cpp/
+bazel-testlogs/
+bazel-out/

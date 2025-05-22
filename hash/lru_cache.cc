@@ -39,7 +39,7 @@ class LRUCache {
   std::unordered_map<K, typename std::list<std::pair<K, V>>::iterator>
       cache_map_;  // typename用于告诉编译器iterator是个类型
 
-}
+};
 
 // list1.splice(pos, list2); // ① 整个 list2 移到 list1 的 pos 之前
 // list1.splice(pos, list2, it); // ② list2 中的 it 元素移到 list1 的 pos 之前

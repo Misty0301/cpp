@@ -2,6 +2,8 @@
 #include <memory>
 #include <vector>
 
+namespace resource { 
+
 struct Data{
   std::vector<int> data;
   void ToString(){
@@ -13,15 +15,20 @@ struct Data{
 
 class Resource {
  public:
+  Resource() = default;
   Resource(int id) { id_ = id; }
   ~Resource() = default;
   // Copy constructor will be implicitly deleted because a move constructor is
   // decleared. 显式声明移动构造函数会隐式删除拷贝构造
-  Resource(Resource&&) = default;
-  // Resource(Resource &&other) {
-  //   id_ = other.id_;
-  //   other.id_ = -1;
-  // }
+  // Resource(Resource&&) = default;
+  Resource(Resource &&other) {
+    id_ = other.id_;
+    other.id_ = -1;
+    // std::move exactly equivalent to a static_cast to an rvalue reference type.
+    // std::move等价于一个对右值引用的static_cast
+    data_ = std::move(other.data_);
+    // data_ = static_cast<Data&&>(other.data_);
+  }
 
   // Resource(const Resource&) = delete;
   // Resource& operator=(const Resource&) = delete;
@@ -53,3 +60,5 @@ class Resource {
 //  private:
 //   std::vector<std::unique_ptr<Resource>> resources_;
 // };
+
+} // namespace resource

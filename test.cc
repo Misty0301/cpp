@@ -3,6 +3,7 @@
 // #include "template/template.cc"
 // #include "thread/thread_queue.cc"
 #include "stl/resource.h"
+#include "stl/copy_and_swap.h"
 
 // void producer_thread(ThreadSafeQueue<int>& queue) {
 //   for (int i = 0; i < 10; i++) {
@@ -21,6 +22,12 @@ void TestResource() {
   auto resource_2 = Resource(std::move(resource));
   resource.Use();
   resource_2.Use();
+  Resource resource_3;
+  resource_3.Use();
+}
+
+void TestCopyAndSwap(){
+
 }
 
 int main() {

@@ -6,5 +6,6 @@ cc_binary(
 cc_binary(
     name = "test",
     srcs = ["test.cc"],
-    deps = ["//stl:resource"],
+    deps = ["//stl:resource",
+            "//stl:copy_and_swap"],
 )
